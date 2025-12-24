@@ -1,0 +1,6 @@
+{
+  "text.autoconfig.autogg.title": "AutoGG Konfiguration",
+  "text.autoconfig.autogg.option.enabled": "Aktiviere AutoGG",
+  "text.autoconfig.autogg.option.message": "Eigene GG Nachricht",
+  "text.autoconfig.autogg.option.delay": "Verzögerung (in Sekunden)"
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "auto-gg",
+  "version": "${version}",
+  "name": "AutoGG",
+  "description": "Make yourself more likeable by automatically writing a GG in the chat after each round.",
+  "authors": [
+    "EinsLuca"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/auto-gg/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "top.einsluca.autogg.Autogg"
+    ],
+    "modmenu": [
+      "top.einsluca.autogg.integration.ModMenuIntegration"
+    ],
+    "client": [
+      "top.einsluca.autogg.client.AutoggClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.10",
+    "java": ">=21",
+    "fabric-api": "*",
+    "cloth-config": "*",
+    "modmenu": "*"
+  }
+}
