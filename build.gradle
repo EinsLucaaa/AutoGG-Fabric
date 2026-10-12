@@ -20,17 +20,29 @@ repositories {
 	maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
+// Compile the shared JAR against the oldest supported Minecraft version by default.
+// Override with -Pminecraft_version=26.2 or 26.3 to check compatibility.
+def supportedVersions = [
+	'26.1': [fabric: '0.155.3+26.1.2', cloth: '26.1.154', modmenu: '18.0.2'],
+	'26.2': [fabric: '0.161.0+26.2', cloth: '26.2.155', modmenu: '20.0.3'],
+	'26.3': [fabric: '0.162.0+26.3', cloth: '26.3.159', modmenu: '21.0.0']
+]
+def modDependencies = supportedVersions[project.minecraft_version]
+if (modDependencies == null) {
+	throw new GradleException("Unsupported Minecraft version: ${project.minecraft_version}. Supported versions: ${supportedVersions.keySet().join(', ')}")
+}
+
 dependencies {
-	// To change the versions see the gradle.properties file
+	// Dependencies match the selected Minecraft version.
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	api("me.shedaniel.cloth:cloth-config-fabric:26.3.159") {
+	implementation "net.fabricmc.fabric-api:fabric-api:${modDependencies.fabric}"
+	api("me.shedaniel.cloth:cloth-config-fabric:${modDependencies.cloth}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
-	api "com.terraformersmc:modmenu:21.0.0"
+	api "com.terraformersmc:modmenu:${modDependencies.modmenu}"
 }
 
 processResources {
