@@ -16,6 +16,8 @@ Automatic "GG" messages after rounds — Fabric mod for Minecraft (Java, Gradle)
     4. Output jar: `build/libs/auto-gg-<version>.jar`
 
 ## Installation
+Requires Minecraft 26.3, Java 25 or newer, and Fabric Loader 0.19.5 or newer.
+
 1. Ensure Fabric Loader and Fabric API are installed for your Minecraft instance.
 2. Install [Cloth Config API
    ](https://modrinth.com/mod/cloth-config) and [Mod Menu](https://modrinth.com/mod/modmenu) (required)
